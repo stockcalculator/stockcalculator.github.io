@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Stock Market Average Calculator</title>
+  <link rel="icon" type="image/x-icon" href="./bull-market.ico">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta charset="UTF-8">
+  <meta name="description"
+    content="This application allows to calculate stock average on entering first and second buy details. A stock average calculator is a tool used to calculate the average value of a list of stock prices." />
+  <meta name="keywords"
+    content="Indian Stock market average Calculator, USA Stock Market average calculator, US stock market average calculator, Japan stock market average-calculator, Australia stock market average calculator. average calculator, stock calculator, percentage calculator,  cash and carry calculator, Stock prices, Average, Calculation, Performance, Investors, Time period, Investment decisions, Spreadsheet, Software program, Stock charting, Technical analysis, Analyzing, Comparison, Investment performance, Stock market.">
+  <meta name="author" content="scriptotechnosys">
+  <meta property="og:title" content="Stock market Average Calculator" />
+  <meta property="og:url" content="" />
+  <meta property="og:description" content="This application allows to calculate stock average on entering first and second buy details. A stock average calculator is a tool used to calculate the average value of a list of stock prices.">
+  <meta property="og:type" content="website">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="twitter:card" content="Stock market Average Calculator">
+  <meta name="twitter:title" content="Stock market Average Calculator">
+  <meta name="twitter:description" content="Indian Stock market average Calculator, USA Stock Market average calculator, US stock market average calculator, Japan stock market average-calculator, Australia stock market average calculator. average calculator, stock calculator, percentage calculator,  cash and carry calculator, Stock prices, Average, Calculation, Performance, Investors, Time period, Investment decisions, Spreadsheet, Software program, Stock charting, Technical analysis, Analyzing, Comparison, Investment performance, Stock market.">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" crossorigin="anonymous">
+
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid wrapper-body">
+    <div class="row">
+      <div id="mobile-header" class="hidden-on-desktop-tablet">
+        <div id="toggle-btn">
+          <i class="fas fa-bars"></i> Menu
+        </div>
+        <div class="mobile-logo">
+          <h2 class="mobile-app-logo"><i class="fas fa-calculator"></i> Stock Calc </h2>
+        </div>
+      </div>
+      <div class="col-md-2 sidebar" id="sidebar">
+        <div class="title-wrapper">
+          <h2 class="app-logo"><i class="fas fa-calculator"></i> Stock Calc</h2>
+          <div class="custom-control custom-switch mb-3">
+            <input type="checkbox" class="custom-control-input" id="darkModeSwitch" data-toggle="toggle">
+            <label class="custom-control-label" for="darkModeSwitch"></label>
+        </div>
+        </div>
+
+        <div class="top-menu">
+          <ul>
+            <li id="ac" title="Stock Average Calculator" class="active" onclick="activeSection('ac')">
+              <a href="" class="link"><i class="fas fa-tachometer-alt"></i>Stock Average Calculator</a>
+            </li>
+            <li id="buymeacoffee" title="Buy Me a Coffee" class="">
+              <a href="./buy-me-a-coffee.html"> <i class="fas fa-mug-hot"></i> Buy Me a Coffee </a>
+            </li>
+            <li id="aboutus" title="About Us" class="">
+              <a href="./about-us.html"><i class="fas fa-user-friends"></i> About Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-10 content-right-body-wrapper">
+        <div id="clock"></div>
+        <div id="average-calculator">
+          <div class="content-body-wrapper">
+            <div class="row">
+              <div class="col-md-12">
+                <header>
+                  <h2 class="headers">Stock Market Average Calculator</h2>
+                </header>
+                <hr />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 st">
+                <h4>1st Purchase</h4>
+                <hr>
+                <label class="label">Old Share Price</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">₹</span>
+                  </div>
+                  <input class="form-control" type="number" id="price1" autocomplete="off" onchange="unitChanged('price1','error2')">
+                  <span id="error2"></span>
+                </div>
+
+                <label class="label">Quantity</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">₹</span>
+                  </div>
+                  <input class="form-control" type="number" id="qty1" autocomplete="off" onchange="unitChanged('qty1','error1')">
+                  <span id="error1"></span>
+                </div>
+                <div class="col-md-12 st">
+                  <h5 id="investedamount1"></h5>
+                </div>
+              </div>
+              <div class="col-md-3 st">
+                <h4>2nd Purchase</h4>
+                  <hr>
+                  <label class="label">New Share Price</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">₹</span>
+                    </div>
+                    <input class="form-control" type="number" id="price2" autocomplete="off" onchange="unitChanged('price2','error4');getAverage()">
+                    <span id="error4"></span>
+                  </div>
+
+                  <label class="label">Quantity</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">₹</span>
+                    </div>
+                    <input class="form-control" type="number" id="qty2" autocomplete="off" onchange="unitChanged('qty2','error3')">
+                  </div>
+                  <div class="col-md-12 st">
+                    <h5 id="investedamount2"></h5>
+                  </div>
+              </div>
+              <div class="col-md-6">
+                <img src="assets/images/bear-and-bull-fight.png" class="bull-bear">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 st">
+                <h5 id="result"></h5>
+              </div>
+              <div class="col-md-12 st">
+                <button class="btn btn-primary" onclick="getAverage()"> Calculate Average</button>
+                <button class="btn btn-danger" onclick="clearFields()">Clear Fields</button>
+              </div>
+            </div>
+          </div>
+          <div class="content-body-wrapper mt-4">
+            <h6>Stock Average Calculator</h6>
+
+            <p>
+                The Stock Average calculator calculates the average price of your stock when you purchase the same stock multiple times. We calculate a fraction shares in the stock average calculator. When we calculate the target average price per share that time uses an average price per share calculator.
+            </p>
+
+            <h6>Why Stock Average Calculator?</h6>
+            <p>
+                A stock average calculator helps investors manage their portfolios, make informed decisions, and improve their investment strategies. It can help you: Measure asset performance, Calculate average cost of acquisition, Determine how many more stocks to buy, Decide whether to buy or sell stocks, and Lower average price by adding more stocks.
+            </p>
+
+            <h6>How Does Stock Average Calculator Work?</h6>
+            <p>
+              Let's deep into the mechanics of the Stock Average Calculator. Consider a scenario where you purchased 50
+              stocks of Adani Power at a price of 500 each. Subsequently, the stock's value decreases to 400. With
+              confidence in Adani Power future prospects, you aim to reduce the average stock price by acquiring more
+              shares. The calculator assists by determining how many additional stocks you need to purchase to bring the
+              average closer to the current price. This tool, such as the Share Average Calculator by FinanceX, offers a
+              user-friendly interface where you input your purchase details, and it provides you with the recalculated
+              average price.
+            </p>
+
+            <h6>Steps to Use Stock Average Calculator:</h6>
+            <ol>
+              <li><strong>Input Purchase Prices:</strong> Enter the purchase price for each instance of buying the
+                stock.</li>
+              <li><strong>Calculating Average Price:</strong> The calculator processes the inputted purchase prices to
+                compute the average stock price.</li>
+              <li><strong>Decision Making:</strong> Use the calculated average to make informed decisions about buying
+                more stocks. This is typically done when the current stock price is lower than the calculated average.
+              </li>
+              <li><strong>Reducing Average Price:</strong> The goal is to strategically buy more shares at lower prices,
+                aiming to bring down the average cost per share.</li>
+              <li><strong>Tool Output:</strong> The Stock Average Calculator provides the user with the recalculated
+                average stock price based on new purchases.</li>
+            </ol>
+
+            <p>
+              This tool empowers investors to make informed decisions and manage their portfolio actively. It's crucial
+              to exercise caution and stay well-informed, as market conditions can be unpredictable.
+            </p>
+
+          </div>
+        </div>
+        <div id="buy-me-a-coffee" class="hide">
+          <div class="content-body-wrapper mt-4">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="">
+                  <h4 class="mt-4 mb-4"> <i class="fas fa-mug-hot"></i> Buy Me a Coffee <i class="fas fa-mug-hot"></i>
+                  </h4>
+                  <p>Buy me a coffee is a way to support the developer of this application. If you find this application
+                    useful, you can buy me a coffee. Your support will help me to keep this application running and
+                    improve it further.</p>
+                  <p>You can scan the QR code using any QR code scanner app on your smartphone.</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <!-- <img src="./images/donate-qr.jpeg" alt="Buy me a coffee" height="700" width="500" class="img-fluid" /> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="mb-2">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-2">
+              </div>
+              <div class="col-md-6 text-center mb-2">
+                &copy; 2022 - 2024. Feedback:<a href="mailto:scriptotechnosys@gmail.com">scriptotechnosys@gmail.com</a>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+      <script src="assets/js/jquery-1.7.1.min.js" type="text/javascript"></script>
+      <script src="assets/js/script.min.js" crossorigin="anonymous"></script>
+      <script>
+       /* To Disable Inspect Element */
+      $(document).bind("contextmenu",function(e) {
+        e.preventDefault();
+      });
+    
+      $(document).keydown(function(e){
+          if(e.which === 123){
+            return false;
+          }
+      });
+      
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('/stockmarketavgcalculator/service-worker.js');
+        });
+      }
+        // Initialize deferredPrompt for use later to show browser install prompt.
+        let deferredPrompt;
+        let buttonInstall = document.getElementById("buttonInstall");
+        buttonInstall.style.display = 'none';
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+          // Prevent the mini-infobar from appearing on mobile
+          e.preventDefault();
+          // Stash the event so it can be triggered later.
+          deferredPrompt = e;
+          // Update UI notify the user they can install the PWA
+          buttonInstall.style.display = 'block';
+          buttonInstall.addEventListener('click', async () => {
+            // Hide the app provided install promotion
+            // buttonInstall.style.display = 'none';
+            // Show the install prompt
+            deferredPrompt.prompt();
+            // Wait for the user to respond to the prompt
+            const { outcome } = await deferredPrompt.userChoice;
+            // Optionally, send analytics event with outcome of user choice
+            console.log(`User response to the install prompt: ${outcome}`);
+            // We've used the prompt, and can't use it again, throw it away
+            deferredPrompt = null;
+          });
+          // Optionally, send analytics event that PWA install promo was shown.
+        });
+      </script>
+</body>
+
+</html>
