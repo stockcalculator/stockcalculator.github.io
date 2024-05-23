@@ -21,6 +21,7 @@ body {
 #investedamount2 span.qty-amount {
   font-size: 16px;
   padding-right: 0px;
+  color: green;
 }
 
 .app-logo {
@@ -42,7 +43,7 @@ body {
   border: 1px solid #ddd;
   border-radius: 16px;
   padding: 15px;
-  margin: 15px;
+  margin: 10px 0px;
 }
 
 .sidebar.col-md-2 {
@@ -77,6 +78,10 @@ input[type="number"] {
   border-radius: .2rem !important;
 }
 
+input[type=checkbox]{
+  margin: 3px 15px 0px;
+}
+
 #investedamount1,
 #investedamount2 {
   display: -webkit-inline-box;
@@ -93,8 +98,8 @@ input[type="number"] {
 #investedamount1 span,
 #investedamount2 span {
   padding-right: 12px;
-  font-size: 11px;
-  color: green;
+  font-size: 13px;
+  color: #db061b;
 }
 
 #result {
@@ -300,6 +305,12 @@ footer {
   #investedamount1,
   #investedamount2 {
     float: right;
+    margin-right: -4%;
+    width: 108%;
+  }
+
+  #investedamount1 span.qty-amount, #investedamount2 span.qty-amount{
+    margin-left: auto;
   }
 
   .hidden-on-desktop-tablet {
@@ -315,7 +326,7 @@ footer {
   }
 
   .headers {
-    color: #8a9b7c;
+    color: #6d8a55;
     font-size: 18px;
   }
 
@@ -354,7 +365,7 @@ footer {
     top: 40px;
     left: -500px;
     transition: left 0.5s ease-in-out;
-    width: 62%;
+    width: 55%;
     font-size: 13px;
     border-radius: 0px 5px 5px 0px;
   }
@@ -377,7 +388,7 @@ footer {
   .mobile-app-logo {
     font-size: 18px;
     padding: 5px 21px 0px 50px;
-    margin: 0px;
+    margin: -3px -7px 8px 0px;
   }
 
   #toggle-btn {
@@ -717,4 +728,8 @@ input::placeholder {
 .label {
   float: left;
   margin: 0 0px 0.3rem 0 !important;
+}
+
+.label-qty{
+  margin-top: 10px;
 }
