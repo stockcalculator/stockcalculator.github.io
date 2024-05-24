@@ -78,9 +78,9 @@ input[type="number"] {
   border-radius: .2rem !important;
 }
 
-input[type=checkbox]{
+/* input[type=checkbox]{
   margin: 3px 15px 0px;
-}
+} */
 
 #investedamount1,
 #investedamount2 {
@@ -270,12 +270,20 @@ footer {
   .hidden-on-desktop-tablet {
     display: none;
   }
+
+  .check-mode{
+    display: none;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
 
   /* Desktops and larger screens */
   .hidden-on-desktop-tablet {
+    display: none;
+  }
+
+  .check-mode{
     display: none;
   }
 }
@@ -422,6 +430,10 @@ footer {
 
   .dark-mode .sidebar.col-md-2 {
     color: #e6e6e6;
+  }
+
+  .check-mode{
+    margin: 0px 40px;
   }
 }
 
