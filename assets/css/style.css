@@ -203,10 +203,10 @@ footer {
 
 #clock {
   font-size: 24px;
-  color: #000;
+  color: #009923;
   position: absolute;
   right: 3%;
-  top: 2.5%;
+  top: 1.5%;
 }
 
 .headers {
@@ -744,4 +744,9 @@ input::placeholder {
 
 .label-qty{
   margin-top: 10px;
+  display: flex;
+}
+
+hr{
+  margin-top: 0.5rem;
 }
